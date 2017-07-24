@@ -1,0 +1,12 @@
+---
+- name: Install Mysql.
+  apt: "name={{ item }} state=installed"
+  with_items: 
+  - mysql-common
+  - mysql-server
+
+- name: Start the MySQL service
+  service: 
+    name: mysql 
+    state: started
+    enabled: true

@@ -1,0 +1,3 @@
+---
+- name: install chrome
+  apt: pkg=chromium-browser state=installed

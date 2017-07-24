@@ -1,0 +1,7 @@
+- name: "Install php"
+  apt: pkg={{ item }} state=installed
+  with_items:
+  - php
+  - libapache2-mod-php
+  - php-mcrypt
+  - php-mysql

@@ -1,0 +1,10 @@
+---
+- name: Add repo
+  apt_repository:
+    repo: ppa:webupd8team/sublime-text-2
+    update_cache: yes
+
+- name: Install Sublime.
+  apt: "name={{ item }} state=installed"
+  with_items: 
+  - sublime-text
