@@ -12,10 +12,10 @@ Using [Ansible](https://docs.ansible.com/) set up a bunch of computers for use a
 
 With the `hosts` file computers are groups by the section:
 
-- web
-- mob-dev
-- video (coming soon)
-- programming (coming soon)
+- `web`
+- `mob-dev`
+- `video` (coming soon)
+- `programming` (coming soon)
 
 ## Provision
 

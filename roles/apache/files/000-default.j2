@@ -1,0 +1,11 @@
+<VirtualHost *:80>
+  ServerAdmin webmaster@livewires.dev
+  DocumentRoot {{ dev_location }}
+  <Directory />
+    Options FollowSymLinks Indexes
+    AllowOverride None
+  </Directory>
+
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+  CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>

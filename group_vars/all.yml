@@ -4,3 +4,6 @@ timezone: Europe/London
 
 # Node
 node_install_version: node_8.x
+
+# New account password (livewires) #superSecure
+pass: '$6$2xFqVdZV9zhx/.19$hv.Mgkrd7i3YdsKBxSyTh32u2tYFOoaCWyXjbA1GMC6f/O9iTNR4mMn7Yvy2bArA2mYCBeRzePgfF51c0nlxY/'

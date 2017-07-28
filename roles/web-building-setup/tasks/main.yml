@@ -1,0 +1,28 @@
+---
+- name: Include variables.
+  include_vars: "{{ item }}"
+  with_first_found:
+    - files:
+      - "vars.yml"
+      skip: true
+
+- name: Create new user
+  user:
+    name: "{{ user }}"
+    comment: "Web Dev"
+    password: "{{ pass }}"
+
+- name: clone web building to sites
+  git: repo="https://github.com/livewires/web-building" dest="{{ folderLocation }}" update=yes
+
+- name: Empty current apache directory
+  file:
+    state: absent
+    path: /var/www
+
+- name: Symlink new directory to apache location
+  file:
+    src: "{{ folderLocation }}/www"
+    dest: /var/www
+    state: link
+    force: yes

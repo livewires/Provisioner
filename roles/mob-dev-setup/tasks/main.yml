@@ -1,0 +1,24 @@
+---
+- name: Include variables.
+  include_vars: "{{ item }}"
+  with_first_found:
+    - files:
+      - "vars.yml"
+      skip: true
+      
+- name: Create new user
+  user:
+    name: "{{ user }}"
+    comment: "Mobile Dev"
+    password: "{{ pass }}"
+
+- name: clone you win to sites
+  git:
+    repo: "https://github.com/livewires/you-win"
+    dest: "{{ folderLocation }}"
+    update: yes
+    force: yes
+
+- name: NPM install
+  shell: "npm --prefix {{ folderLocation }} install {{ folderLocation }}"
+  

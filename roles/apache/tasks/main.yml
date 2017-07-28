@@ -1,2 +1,44 @@
+---
+- name: Include variables.
+  include_vars: "{{ item }}"
+  with_first_found:
+    - files:
+      - "variables.yml"
+      skip: true
+
 - name: install apache
-  apt: name=apache2
+  apt: name=apache2 update_cache=yes state=latest
+
+- name: enabled mod_rewrite
+  apache2_module: name=rewrite state=present
+
+- name: Remove symlink
+  file:
+   path: "{{ dev_location }}"
+   state: absent
+
+- name: create dev folder
+  file:
+    path: "{{ dev_location }}"
+    state: directory
+    mode: 0775
+    recurse: yes
+
+- name: New apache conf file
+  template:
+    src: "../files/000-default.j2"
+    dest: "/etc/apache2/sites-enabled/000-default.conf"
+
+- name: New index page
+  copy:
+    src: ../files/index.htm
+    dest: "{{ dev_location }}"
+
+- service:
+    name: apache2
+    state: reloaded
+
+- name: New hosts file
+  template:
+    src: "../files/hosts.j2"
+    dest: "/etc/hosts"

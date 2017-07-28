@@ -24,3 +24,10 @@
     - apache
     - mysql
     - php
+    - web-building-setup
+
+- name: mob dev project
+  hosts: web
+  become: true
+  roles:
+    - mob-dev-setup
