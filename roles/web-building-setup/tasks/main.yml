@@ -6,11 +6,11 @@
       - "vars.yml"
       skip: true
 
-- name: Create new user
-  user:
-    name: "{{ user }}"
-    comment: "Web Dev"
-    password: "{{ pass }}"
+# - name: Create new user
+#   user:
+#     name: "{{ user }}"
+#     comment: "Web Dev"
+#     password: "{{ pass }}"
 
 - name: clone web building to sites
   git: repo="https://github.com/livewires/web-building" dest="{{ folderLocation }}" update=yes

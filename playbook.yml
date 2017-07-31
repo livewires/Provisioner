@@ -27,7 +27,7 @@
     - web-building-setup
 
 - name: mob dev project
-  hosts: web
+  hosts: mob-dev
   become: true
   roles:
     - mob-dev-setup

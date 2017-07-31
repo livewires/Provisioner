@@ -1,5 +1,10 @@
 [web]
-lw-alpha # referenced in ssh config IP address will work too...
+# lw-alpha # referenced in ssh config IP address will work too...
+lw-york-01
+lw-york-12
+lw-york-03
+lw-york-09
 
 [mob-dev]
-
+lw-york-07
+lw-york-10

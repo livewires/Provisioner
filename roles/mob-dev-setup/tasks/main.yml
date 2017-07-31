@@ -21,4 +21,4 @@
 
 - name: NPM install
   shell: "npm --prefix {{ folderLocation }} install {{ folderLocation }}"
-  
+

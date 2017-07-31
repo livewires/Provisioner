@@ -9,3 +9,15 @@
   - at
   - lvm2
   - build-essential
+  - nfs-common
+
+- name: setup emoji font package
+  apt_repository:
+    repo: ppa:eosrei/fonts
+    update_cache: yes
+
+- name: Install emoji
+  apt: name=fonts-emojione-svginot
+
+- name: configure /etc/fstab on clients
+  action: mount name=/home/lwuser/data src=igloo:/export/home/lwuser/web fstype=nfs opts=default state=mounted
